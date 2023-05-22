@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, {useState} from 'react'
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    var [cadena, setCadena] = useState([it n]);
+    var [cad,setCad] = useState('');
+    var insertar = () =>{
+        var cadenNew = [...cadena];
+        cadenNew.splice(cadenNew.length,0,cad);
+        setCadena(cadenNew);
+        setCad('');
+    }
+    var concatenacion = cadena.join(' ');
+
+    return (
+        <div>
+            <input type='text' value={cad} onChange={(e) => setCad(e.target.value)}/>
+            <button onClick={insertar}>Insertar</button>
+            <div>
+                <p>{concatenacion}</p>
+            </div>
+        </div>
+    )
 }
 
 export default App;
